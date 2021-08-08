@@ -37,6 +37,6 @@ int main()
     Box box1(20.0, 30.0, 10.0);
     std::cout<<"Box1: "<< box1.getL() <<"; "<< box1.getB() <<"; "<< box1.getH() <<". "<< std::endl;
     Box box2 = box1;
-    std::cout<<"Box1: "<< box2.getL() <<"; "<< box2.getB() <<"; "<< box2.getH() <<". "<< std::endl;
+    std::cout<<"Box2: "<< box2.getL() <<"; "<< box2.getB() <<"; "<< box2.getH() <<". "<< std::endl;
     return 0;
 }
