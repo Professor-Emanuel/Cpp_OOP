@@ -90,3 +90,151 @@ If a copy constructor is not defined in a class, the compiler itself defines one
 
 
 #OOP Friend Functions
+
+
+A friend function of a class is defined outside that class' scope but it has the right to access all private and protected members of the class. Even though the prototypes for friend functions appear in the class definition, friends are not member functions.
+
+
+A friend can be a function, function template, or member function, or a class or class template, in which case the entire class and all of its members are friends.
+
+
+
+#OOP Inline Functions
+
+
+C++ inline function is powerful concept that is commonly used with classes. If a function is inline, the compiler places a copy of the code of that function at each point where the function is called at compile time.
+
+
+Any change to an inline function could require all clients of the function to be recompiled because compiler would need to replace all the code once again otherwise it will continue with old functionality.
+
+
+To inline a function, place the keyword inline before the function name and define the function before any calls are made to the function. The compiler can ignore the inline qualifier in case defined function is more than a line.
+
+
+A function definition in a class definition is an inline function definition, even without the use of the inline specifier.
+
+
+
+#OOP THIS pointer
+
+
+Every object in C++ has access to its own address through an important pointer called this pointer. The this pointer is an implicit parameter to all member functions. Therefore, inside a member function, this may be used to refer to the invoking object.
+
+
+Friend functions do not have a this pointer, because friends are not members of a class. Only member functions have a this pointer.
+
+
+
+#OOP POINTER to Classes
+
+
+A pointer to a C++ class is done exactly the same way as a pointer to a structure and to access members of a pointer to a class you use the member access operator -> operator, just as you do with pointers to structures. Also as with all pointers, you must initialize the pointer before using it.
+
+
+
+#OOP STATIC Members of a Classes & Static Function Members
+
+
+We can define class members static using static keyword. When we declare a member of a class as static it means no matter how many objects of the class are created, there is only one copy of the static member.
+
+
+A static member is shared by all objects of the class. All static data is initialized to zero when the first object is created, if no other initialization is present. We can't put it in the class definition but it can be initialized outside the class.
+
+
+By declaring a function member as static, you make it independent of any particular object of the class. A static member function can be called even if no objects of the class exist and the static functions are accessed using only the class name and the scope resolution operator ::.
+
+
+A static member function can only access static data member, other static member functions and any other functions from outside the class.
+
+
+Static member functions have a class scope and they do not have access to the this pointer of the class. You could use a static member function to determine whether some objects of the class have been created or not.
+
+
+
+#OOP Inheritance
+
+
+One of the most important concepts in object-oriented programming is that of inheritance. Inheritance allows us to define a class in terms of another class, which makes it easier to create and maintain an application. This also provides an opportunity to reuse the code functionality and fast implementation time.
+
+
+When creating a class, instead of writing completely new data members and member functions, the programmer can designate that the new class should inherit the members of an existing class. This existing class is called the base class, and the new class is referred to as the derived class.
+
+
+The idea of inheritance implements the is a relationship. For example, mammal IS-A animal, dog IS-A mammal hence dog IS-A animal as well and so on.
+
+
+Base and Derived Classes
+
+
+A class can be derived from more than one classes, which means it can inherit data and functions from multiple base classes. To define a derived class, we use a class derivation list to specify the base class(es). A class derivation list names one or more base classes and has the form −
+
+
+          class derived-class: access-specifier base-class
+          
+          
+Where access-specifier is one of public, protected, or private, and base-class is the name of a previously defined class. If the access-specifier is not used, then it is private by default.
+
+
+Access Control and Inheritance
+
+
+A derived class can access all the non-private members of its base class. Thus base-class members that should not be accessible to the member functions of derived classes should be declared private in the base class.
+
+
+We can summarize the different access types according to - who can access them in the following way −
+
+
+Access	public	protected	private
+
+
+Same class	yes	yes	yes
+
+
+Derived classes	yes	yes	no
+
+
+Outside classes	yes	no	no
+
+
+A derived class inherits all base class methods with the following exceptions −
+
+
+          Constructors, destructors and copy constructors of the base class.
+
+
+          Overloaded operators of the base class.
+
+
+          The friend functions of the base class.
+          
+          
+Type of Inheritance
+
+
+When deriving a class from a base class, the base class may be inherited through public, protected or private inheritance. The type of inheritance is specified by the access-specifier as explained above.
+
+
+We hardly use protected or private inheritance, but public inheritance is commonly used. While using different type of inheritance, following rules are applied −
+
+
+Public Inheritance − When deriving a class from a public base class, public members of the base class become public members of the derived class and protected members of the base class become protected members of the derived class. A base class's private members are never accessible directly from a derived class, but can be accessed through calls to the public and protected members of the base class.
+
+
+Protected Inheritance − When deriving from a protected base class, public and protected members of the base class become protected members of the derived class.
+
+
+Private Inheritance − When deriving from a private base class, public and protected members of the base class become private members of the derived class.
+
+
+Multiple Inheritance
+A C++ class can inherit members from more than one class and here is the extended syntax −
+
+
+          class derived-class: access baseA, access baseB....
+          
+          
+Where access is one of public, protected, or private and would be given for every base class and they will be separated by comma as shown above.
+
+
+
+#OOP Overloading
