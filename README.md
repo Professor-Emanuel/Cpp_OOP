@@ -237,4 +237,74 @@ Where access is one of public, protected, or private and would be given for ever
 
 
 
-#OOP Overloading
+#OOP Overloading (Operators and Functions)
+
+
+C++ allows you to specify more than one definition for a function name or an operator in the same scope, which is called function overloading and operator overloading respectively.
+
+
+An overloaded declaration is a declaration that is declared with the same name as a previously declared declaration in the same scope, except that both declarations have different arguments and obviously different definition (implementation).
+
+
+When you call an overloaded function or operator, the compiler determines the most appropriate definition to use, by comparing the argument types you have used to call the function or operator with the parameter types specified in the definitions. The process of selecting the most appropriate overloaded function or operator is called overload resolution.
+
+
+Function Overloading in C++
+
+
+You can have multiple definitions for the same function name in the same scope. The definition of the function must differ from each other by the types and/or the number of arguments in the argument list. You cannot overload function declarations that differ only by return type.
+
+
+Operators Overloading in C++
+
+
+You can redefine or overload most of the built-in operators available in C++. Thus, a programmer can use operators with user-defined types as well.
+
+
+Overloaded operators are functions with special names: the keyword "operator" followed by the symbol for the operator being defined. Like any other function, an overloaded operator has a return type and a parameter list.
+
+
+Box operator+(const Box&);   -> declares the addition operator that can be used to add two Box objects and returns final Box object. Most overloaded operators may be defined as ordinary non-member functions or as class member functions. In case we define above function as non-member function of a class then we would have to pass two arguments for each operand as follows −>    Box operator+(const Box&, const Box&);
+
+
+Declaring it as a member function, gives access to "this" pointer.
+
+
+Overloadable/Non-overloadableOperators
+
+
+Following is the list of operators which can be overloaded −
+
+
+          +	-	*	/	%	^
+          &	|	~	!	,	=
+          <	>	<=	>=	++	--
+          <<	>>	==	!=	&&	||
+          +=	-=	/=	%=	^=	&=
+          |=	*=	<<=	>>=	[]	()
+          ->	->*	new	new []	delete	delete []
+
+
+Following is the list of operators, which can not be overloaded −
+
+
+          ::	.*	.	?:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
