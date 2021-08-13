@@ -291,10 +291,43 @@ Following is the list of operators, which can not be overloaded −
           ::	.*	.	?:
 
 
+More on const:  https://docs.microsoft.com/en-us/cpp/cpp/const-cpp?view=msvc-160
+
+More on const:  https://www.cprogramming.com/tutorial/const_correctness.html
 
 
+More on assignment operator:  https://www.geeksforgeeks.org/assignment-operator-overloading-in-c/
 
 
+The function call operator () can be overloaded for objects of class type. When you overload ( ), you are not creating a new way to call a function. Rather, you are creating an operator function that can be passed an arbitrary number of parameters.
+
+
+The subscript operator [] is normally used to access array elements. This operator can be overloaded to enhance the existing functionality of C++ arrays.
+
+
+The class member access operator (->) can be overloaded but it is a bit trickier. It is defined to give a class type a "pointer-like" behavior. The operator -> must be a member function. If used, its return type must be a pointer or an object of a class to which you can apply.
+
+
+The operator-> is used often in conjunction with the pointer-dereference operator * to implement "smart pointers." These pointers are objects that behave like normal pointers except they perform other tasks when you access an object through them, such as automatic object deletion either when the pointer is destroyed, or the pointer is used to point to another object.
+
+
+The dereferencing operator-> can be defined as a unary postfix operator. That is, given a class −
+
+
+          class Ptr {
+             //...
+             X * operator->();
+          };
+
+
+Objects of class Ptr can be used to access members of class X in a very similar manner to the way pointers are used. For example −
+
+          void f(Ptr p ) {
+             p->m = 10 ; // (p.operator->())->m = 10
+          }
+
+
+The statement p->m is interpreted as (p.operator->())->m. 
 
 
 
