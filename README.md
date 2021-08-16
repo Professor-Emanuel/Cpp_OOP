@@ -356,8 +356,160 @@ It is possible that you want to include a virtual function in a base class so th
 
 
 
+#OOP Data Abstraction
+
+
+Data abstraction refers to providing only essential information to the outside world and hiding their background details, i.e., to represent the needed information in program without presenting the details.
+
+
+Data abstraction is a programming (and design) technique that relies on the separation of interface and implementation.
+
+
+Let's take one real life example of a TV, which you can turn on and off, change the channel, adjust the volume, and add external components such as speakers, VCRs, and DVD players, BUT you do not know its internal details, that is, you do not know how it receives signals over the air or through a cable, how it translates them, and finally displays them on the screen.
+
+
+Thus, we can say a television clearly separates its internal implementation from its external interface and you can play with its interfaces like the power button, channel changer, and volume control without having any knowledge of its internals.
+
+
+In C++, classes provides great level of data abstraction. They provide sufficient public methods to the outside world to play with the functionality of the object and to manipulate object data, i.e., state without actually knowing how class has been implemented internally.
+
+
+For example, your program can make a call to the sort() function without knowing what algorithm the function actually uses to sort the given values. In fact, the underlying implementation of the sorting functionality could change between releases of the library, and as long as the interface stays the same, your function call will still work.
+
+
+In C++, we use classes to define our own abstract data types (ADT).
+
+
+Access Labels Enforce Abstraction
+
+
+In C++, we use access labels to define the abstract interface to the class. A class may contain zero or more access labels −
+
+
+          Members defined with a public label are accessible to all parts of the program. The data-abstraction view of a type is defined by its public members.
+
+
+          Members defined with a private label are not accessible to code that uses the class. The private sections hide the implementation from code that uses the type.
+
+
+There are no restrictions on how often an access label may appear. Each access label specifies the access level of the succeeding member definitions. The specified access level remains in effect until the next access label is encountered or the closing right brace of the class body is seen.
+
+
+Benefits of Data Abstraction
+
+
+Data abstraction provides two important advantages −
+
+
+          Class internals are protected from inadvertent user-level errors, which might corrupt the state of the object.
+
+
+          The class implementation may evolve over time in response to changing requirements or bug reports without requiring change in user-level code.
+
+
+By defining data members only in the private section of the class, the class author is free to make changes in the data. If the implementation changes, only the class code needs to be examined to see what affect the change may have. If data is public, then any function that directly access the data members of the old representation might be broken.
+
+
+Data Abstraction Example
+
+
+Any C++ program where you implement a class with public and private members is an example of data abstraction.
+
+
+Designing Strategy
+
+
+Abstraction separates code into interface and implementation. So while designing your component, you must keep interface independent of the implementation so that if you change underlying implementation then interface would remain intact.
+
+
+In this case whatever programs are using these interfaces, they would not be impacted and would just need a recompilation with the latest implementation.
 
 
 
+#OOP Data Encapsulation
 
+
+All C++ programs are composed of the following two fundamental elements −
+
+
+          Program statements (code) − This is the part of a program that performs actions and they are called functions.
+
+          Program data − The data is the information of the program which gets affected by the program functions.
+
+
+Encapsulation is an Object Oriented Programming concept that binds together the data and functions that manipulate the data, and that keeps both safe from outside interference and misuse. Data encapsulation led to the important OOP concept of data hiding.
+
+
+Data encapsulation is a mechanism of bundling the data, and the functions that use them and data abstraction is a mechanism of exposing only the interfaces and hiding the implementation details from the user.
+
+
+C++ supports the properties of encapsulation and data hiding through the creation of user-defined types, called classes. We already have studied that a class can contain private, protected and public members. By default, all items defined in a class are private.
+
+
+          class Box {
+             public:
+                double getVolume(void) {
+                   return length * breadth * height;
+                }
+
+             private:
+                double length;      // Length of a box
+                double breadth;     // Breadth of a box
+                double height;      // Height of a box
+          };
+
+
+The variables length, breadth, and height are private. This means that they can be accessed only by other members of the Box class, and not by any other part of your program. This is one way encapsulation is achieved.
+
+
+To make parts of a class public (i.e., accessible to other parts of your program), you must declare them after the public keyword. All variables or functions defined after the public specifier are accessible by all other functions in your program.
+
+
+Making one class a friend of another exposes the implementation details and reduces encapsulation. The ideal is to keep as many of the details of each class hidden from all other classes as possible.
+
+
+Data Encapsulation Example
+
+
+Any C++ program where you implement a class with public and private members is an example of data encapsulation and data abstraction. 
+
+
+
+#OOP Interfaces in C++ (Abstract Classes)
+
+
+An interface describes the behavior or capabilities of a C++ class without committing to a particular implementation of that class.
+
+
+The C++ interfaces are implemented using abstract classes and these abstract classes should not be confused with data abstraction which is a concept of keeping implementation details separate from associated data.
+
+
+A class is made abstract by declaring at least one of its functions as pure virtual function. A pure virtual function is specified by placing "= 0" in its declaration
+
+
+          class Box {
+             public:
+                // pure virtual function
+                virtual double getVolume() = 0;
+
+             private:
+                double length;      // Length of a box
+                double breadth;     // Breadth of a box
+                double height;      // Height of a box
+          };
+          
+          
+The purpose of an abstract class (often referred to as an ABC) is to provide an appropriate base class from which other classes can inherit. Abstract classes cannot be used to instantiate objects and serves only as an interface. Attempting to instantiate an object of an abstract class causes a compilation error.
+
+
+Thus, if a subclass of an ABC needs to be instantiated, it has to implement each of the virtual functions, which means that it supports the interface declared by the ABC. Failure to override a pure virtual function in a derived class, then attempting to instantiate objects of that class, is a compilation error.
+
+
+Classes that can be used to instantiate objects are called concrete classes.
+
+
+https://stackoverflow.com/questions/12998581/how-do-i-declare-an-overloaded-operator-in-an-abstract-class-and-override-it-in
+
+
+https://stackoverflow.com/questions/1905439/overload-operators-as-member-function-or-non-member-friend-function
 
